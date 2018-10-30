@@ -2,6 +2,8 @@ import React, {Component, PureComponent} from 'react'
 import {findDOMNode} from 'react-dom'
 import PropTypes from 'prop-types'
 import CommentList from '../CommentList'
+import { connect } from 'react-redux';
+import { deleteArticle } from '../../AC';
 import { CSSTransitionGroup } from 'react-transition-group'
 import './style.css'
 
@@ -34,6 +36,9 @@ class Article extends PureComponent {
                 <button onClick = {toggleOpen}>
                     {isOpen ? 'close' : 'open'}
                 </button>
+                <button onClick={this.handleDelete}>
+                Delete
+                </button>
                 <CSSTransitionGroup
                     transitionName = 'article'
                     transitionAppear
@@ -46,6 +51,13 @@ class Article extends PureComponent {
                 </CSSTransitionGroup>
             </div>
         )
+    }
+
+    handleDelete = () => {
+      console.log('---');
+      const { deleteArticle, article } = this.props
+
+      deleteArticle(article.id)
     }
 
     setContainerRef = ref => {
@@ -71,4 +83,4 @@ class Article extends PureComponent {
     }
 }
 
-export default Article
+export default connect(null, { deleteArticle })(Article)
