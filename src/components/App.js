@@ -6,7 +6,6 @@ import UserForm from './UserForm'
 import Filters from './Filters'
 import Counter from './Counter'
 import 'react-select/dist/react-select.css'
-import { articles } from '../fixtures';
 
 class App extends Component {
     static propTypes = {
@@ -19,7 +18,7 @@ class App extends Component {
             <div>
                 <Counter />
                 <UserForm />
-                <Filters articles = {articles} />
+                <Filters />
                 <ArticleList />
             </div>
         )
