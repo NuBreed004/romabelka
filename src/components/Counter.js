@@ -7,7 +7,7 @@ class Counter extends Component {
     static propTypes = {
         counter: PropTypes.number,
         increment: PropTypes.func.isRequired
-    };
+    }
 
     render() {
         return (
