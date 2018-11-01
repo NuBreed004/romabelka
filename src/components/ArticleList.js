@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Article from './Article'
-import {filtratedArticles} from '../selectors';
+import {filtratedArticlesSelector} from '../selectors';
 import accordion from '../decorators/accordion'
 import {connect} from 'react-redux';
 
@@ -34,6 +34,6 @@ class ArticleList extends Component {
 export default connect((state) => {
 
   return {
-    articles: filtratedArticles(state)
+    articles: filtratedArticlesSelector(state)
   }
 })(accordion(ArticleList))
