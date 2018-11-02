@@ -20,7 +20,7 @@ export const filtratedArticlesSelector = createSelector(
   })
 
 
-export const commentSelector = createSelector(
+export const commentSelectorFactory = () => createSelector(
   commentsGetter,
   idGetter,
   (comments, id) => {
